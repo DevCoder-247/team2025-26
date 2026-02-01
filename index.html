@@ -1,0 +1,3563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="../swdlogo3.png" rel="icon" />
+    <title>Team 25-26</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Sumana:wght@700&display=swap");
+
+        .html,
+        body {
+
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+
+
+        }
+
+        .iframe-team {
+            height: 67vh;
+            width: 95vw;
+
+
+        }
+
+        @media screen and (max-width: 610px) and (orientation: portrait) {
+            .iframe-team {
+                height: 97vh;
+                width: 97vw;
+            }
+        }
+
+        #header {
+            height: 50px;
+            width: 99%;
+            /* position: fixed; */
+            left: 0;
+            top: 0;
+            right: 0;
+            transition: all 0.5s;
+            z-index: 997;
+        }
+
+        #header #logonav h1 {
+            font-size: 36px;
+            margin: 0;
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        #header #logonav h1 span {
+            color: #c9df8a;
+        }
+
+        #header #logonav h1 a,
+        #header #logonav h1 a:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        #header #logonav img {
+            padding: 0;
+            margin: 15px;
+            max-height: 40px;
+            max-width: 40px;
+        }
+
+        @media (max-width: 992px) {
+            #header #logonav img {
+                max-height: 30px;
+
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            /* #header #logonav img {
+            max-height: 30px;
+            
+        } */
+            #header {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #header #logonav img {
+                width: 18%;
+                max-width: 80px;
+                margin: 5px;
+            }
+        }
+
+        /*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+        /**
+* Desktop Navigation 
+*/
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar>ul>li {
+            white-space: nowrap;
+            padding: 10px 0 10px 12px;
+        }
+
+        .navbar a,
+        .navbar a:focus {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #234d20;
+            font-family: "Raleway", sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: 0.3s;
+            position: relative;
+            padding: 6px 4px;
+        }
+
+        .navbar a i,
+        .navbar a:focus i {
+            font-size: 12px;
+            line-height: 0;
+            margin-left: 5px;
+        }
+
+        .navbar>ul>li>a:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background-color: #c9df8a;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        .navbar a:hover:before,
+        .navbar li:hover>a:before,
+        .navbar .active:before {
+            visibility: visible;
+            width: 100%;
+        }
+
+        .navbar a:hover,
+        .navbar .active,
+        .navbar .active:focus,
+        .navbar li:hover>a {
+            color: #234d20;
+        }
+
+
+        .navbar .dropdown ul {
+            display: block;
+            position: absolute;
+            left: 12px;
+            top: calc(100% + 30px);
+            margin: 0;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+            transition: 0.3s;
+        }
+
+        .navbar .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navbar .dropdown ul a {
+            padding: 10px 20px;
+            font-size: 14px;
+            text-transform: none;
+            color: #234d20;
+        }
+
+        .navbar .dropdown ul a i {
+            font-size: 12px;
+        }
+
+        .navbar .dropdown ul a:hover,
+        .navbar .dropdown ul .active:hover,
+        .navbar .dropdown ul li:hover>a {
+            color: #c9df8a;
+        }
+
+        .navbar .dropdown:hover>ul {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+        }
+
+        .navbar .dropdown .dropdown ul {
+            top: 0;
+            left: calc(100% - 30px);
+            visibility: hidden;
+        }
+
+        .navbar .dropdown .dropdown:hover>ul {
+            opacity: 1;
+            top: 0;
+            left: 100%;
+            visibility: visible;
+        }
+
+        @media (max-width: 1366px) {
+            .navbar .dropdown .dropdown ul {
+                left: -90%;
+            }
+
+            .navbar .dropdown .dropdown:hover>ul {
+                left: -100%;
+            }
+        }
+
+        #navbar a {
+            text-decoration: none !important;
+        }
+
+        #navbar a:hover,
+        #navbar a:focus {
+            text-decoration: none !important;
+        }
+
+
+
+        /* By Zainali */
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flipCard {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+            /* max-width: 900px; */
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .team-card {
+            background-color: #e8e8e8;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-card:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .team-card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .team-card:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .team-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 280px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .photo-container:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 5px;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            background: #f5f5f5;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transform: rotateY(180deg);
+        }
+
+        .card-back h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card-back p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .team-card h3 {
+            color: #2d2d2d;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .team-card>p {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .website {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+
+
+
+        /**
+* Mobile Navigation 
+*/
+        .mobile-nav-toggle {
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            display: none;
+            line-height: 0;
+            transition: 0.5s;
+        }
+
+        @media (max-width: 991px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+            }
+        }
+
+        .navbar-mobile {
+            position: fixed;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .navbar-mobile .mobile-nav-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .navbar-mobile ul {
+            display: block;
+            position: absolute;
+            top: 55px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
+            padding: 10px 0;
+            background-color: #fff;
+            overflow-y: auto;
+            transition: 0.3s;
+        }
+
+        .navbar-mobile>ul>li {
+            padding: 0;
+        }
+
+        .navbar-mobile a:hover:before,
+        .navbar-mobile li:hover>a:before,
+        .navbar-mobile .active:before {
+            visibility: hidden;
+        }
+
+        .navbar-mobile a,
+        .navbar-mobile a:focus {
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #060c22;
+        }
+
+        .navbar-mobile a:hover,
+        .navbar-mobile .active,
+        .navbar-mobile li:hover>a {
+            color: #c9df8a;
+        }
+
+        .navbar-mobile .getstarted,
+        .navbar-mobile .getstarted:focus {
+            margin: 15px;
+        }
+
+        .navbar-mobile .dropdown ul {
+            position: static;
+            display: none;
+            margin: 10px 20px;
+            padding: 10px 0;
+            z-index: 99;
+            opacity: 1;
+            visibility: visible;
+            background: #fff;
+            box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+        }
+
+        .navbar-mobile .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navbar-mobile .dropdown ul a {
+            padding: 10px 20px;
+        }
+
+        .navbar-mobile .dropdown ul a i {
+            font-size: 12px;
+        }
+
+        .navbar-mobile .dropdown ul a:hover,
+        .navbar-mobile .dropdown ul .active:hover,
+        .navbar-mobile .dropdown ul li:hover>a {
+            color: #c9df8a;
+        }
+
+        .navbar-mobile .dropdown>.dropdown-active {
+            display: block;
+        }
+
+
+        .section-title {
+            width: 100%;
+            text-align: center;
+            padding: 45px 0 30px 0;
+            position: relative;
+
+        }
+
+        .section-title::after {
+            content: "";
+            width: 50px;
+            height: 5px;
+            background: #353535;
+            position: absolute;
+            left: calc(50% - 25px);
+            bottom: 0;
+        }
+
+        .section-title h1 {
+            color: #353535;
+            font-size: 50px;
+            letter-spacing: 5px;
+            font-weight: 800;
+            font-family: "Playfair Display", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        .img,
+        .img2 {
+            max-width: 270px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        article {
+
+            margin: 50px auto;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        article img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+        }
+
+        article img:first-child {
+            box-shadow: 0px 10px 15px -3px rgba(233, 233, 233, 0.3);
+        }
+
+        article img:last-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 90%;
+            height: 90%;
+            opacity: 0;
+            transform: translateY(30%) scale(0.9);
+            border-radius: 12px;
+        }
+
+        article:hover img:first-child {
+            transform: perspective(500px) rotateX(30deg) translateY(-10%);
+            filter: blur(5px);
+        }
+
+        article:hover img:last-child {
+            opacity: 1;
+            transform: translateY(0%) scale(1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0%) scale(1);
+            }
+
+            50% {
+                transform: translateY(-5%) scale(1.05);
+            }
+        }
+
+        .desc,
+        .desc2 {
+            max-width: 55%;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            animation: slideInFromRight 2s forwards;
+        }
+
+        .desc2 {
+            order: initial;
+            transform: translateX(-100%);
+            animation: slideInFromLeft 3s forwards;
+        }
+
+        .img img,
+        .img2 img {
+            width: 250px;
+            height: 250px;
+            border: 5px solid #234d20;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .img img:hover,
+        .img2 img:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons-b {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icons-b a {
+            color: #333;
+            font-size: 20px;
+            margin: 10px 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons-b a:hover {
+            color: #234d20;
+        }
+
+        @media (max-width: 600px) {
+            .section-title h1 {
+                font-size: 38px;
+            }
+
+            .row {
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+            }
+
+            #row2 {
+                flex-direction: column-reverse;
+            }
+
+            .desc,
+            .desc2 {
+                max-width: 90%;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .img2 {
+                margin-top: 10px;
+                order: initial;
+            }
+
+            .openion {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0 10px 0;
+            }
+        }
+
+        .mar {
+            margin: 5px 0px 5px 0px;
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Secretary */
+
+
+        .lead {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .pr-section {
+            margin-top: 50px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .divider-card {
+            width: 100%;
+            height: 2px;
+            background-color: #ccc;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-weight: bolder;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #555;
+        }
+
+
+        /*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+        #footer {
+            background: #234d20;
+            padding: 0 0 25px 0;
+            color: #eee;
+            font-size: 14px;
+        }
+
+        #footer .footer-top {
+            background: #040919;
+            padding: 60px 0 30px 0;
+        }
+
+        #footer .footer-top .footer-info {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-info h3 {
+            font-size: 26px;
+            margin: 0 0 20px 0;
+            padding: 2px 0 2px 0;
+            line-height: 1;
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        #footer .footer-top .footer-info img {
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        #footer .footer-top .footer-info p {
+            font-size: 14px;
+            line-height: 24px;
+            margin-bottom: 0;
+            font-family: "Raleway", sans-serif;
+            color: #fff;
+        }
+
+        #footer .footer-top .social-links a {
+            display: inline-block;
+            background: #222636;
+            color: #eee;
+            line-height: 1;
+            margin-right: 4px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #footer .footer-top .social-links a i {
+            line-height: 0;
+            font-size: 16px;
+        }
+
+        #footer .footer-top .social-links a:hover {
+            background: #c9df8a;
+            color: #fff;
+        }
+
+        #footer .footer-top h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #c9df8a;
+        }
+
+        #footer .footer-top .footer-links {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #footer .footer-top .footer-links ul i {
+            padding-right: 5px;
+            color: #c9df8a;
+            font-size: 18px;
+        }
+
+        #footer .footer-top .footer-links ul li {
+            border-bottom: 1px solid #262c44;
+            padding: 10px 0;
+        }
+
+        #footer .footer-top .footer-links ul li:first-child {
+            padding-top: 0;
+        }
+
+        #footer .footer-top .footer-links ul a {
+            color: #eee;
+        }
+
+        #footer .footer-top .footer-links ul a:hover {
+            color: #c9df8a;
+        }
+
+        #footer .footer-top .footer-contact {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-contact p {
+            line-height: 26px;
+        }
+
+        #footer .footer-top .footer-newsletter {
+            margin-bottom: 30px;
+        }
+
+        #footer .footer-top .footer-newsletter input[type=email] {
+            border: 0;
+            padding: 6px 8px;
+            width: 65%;
+        }
+
+        #footer .footer-top .footer-newsletter input[type=submit] {
+            background: #c9df8a;
+            border: 0;
+            width: 35%;
+            padding: 6px 0;
+            text-align: center;
+            color: #fff;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        #footer .footer-top .footer-newsletter input[type=submit]:hover {
+            background: #c9df8a;
+        }
+
+        #footer .copyright {
+            background: #234d20;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #footer .credits {
+            text-align: center;
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        @media screen and (max-width: 480px) {
+            .row-f {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+   NEW SLIDER STYLES
+   ============================================ */
+
+        /* Slider Container */
+        .team-slider-container {
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+        }
+
+        /* Parallax Background */
+        .parallax-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .parallax-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .circle-1 {
+            width: 128px;
+            height: 128px;
+            background: rgba(35, 77, 32, 0.08);
+            top: 40px;
+            left: 40px;
+        }
+
+        .circle-2 {
+            width: 160px;
+            height: 160px;
+            background: rgba(201, 223, 138, 0.2);
+            bottom: 40px;
+            right: 80px;
+        }
+
+        .circle-3 {
+            width: 96px;
+            height: 96px;
+            background: rgba(201, 223, 138, 0.15);
+            top: 50%;
+            left: 33%;
+            transform: translateY(-50%);
+        }
+
+        /* Main Slider Wrapper */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: #234d20;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .nav-button.prev {
+            left: 10px;
+        }
+
+        .nav-button.next {
+            right: 10px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            background: #1a3a18;
+        }
+
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Slider Viewport */
+        .slider-viewport {
+            overflow: hidden;
+            padding: 24px 64px;
+            cursor: grab;
+        }
+
+        .slider-viewport.dragging {
+            cursor: grabbing;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        .slider-track.dragging {
+            transition: none;
+        }
+
+        /* Profile Card - New Slider Design */
+        .slide-card {
+            flex-shrink: 0;
+            width: 220px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .slide-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 16px 16px 12px;
+        }
+
+        .card-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-role {
+            font-size: 12px;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Card Image Container */
+        .card-image-container {
+            position: relative;
+            margin-top: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4 / 4.5;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-card:hover .card-image {
+            transform: scale(1.08);
+            filter: brightness(1.02);
+        }
+
+        /* Gradient Overlay */
+        .card-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .slide-card:hover .card-gradient {
+            opacity: 1;
+        }
+
+        /* Social Icons in Slider */
+        .slider-social-icons {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .slider-social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(10px) scale(0.8);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .slider-social-icon:nth-child(1) {
+            transition-delay: 0ms;
+        }
+
+        .slider-social-icon:nth-child(2) {
+            transition-delay: 50ms;
+        }
+
+        .slider-social-icon:nth-child(3) {
+            transition-delay: 100ms;
+        }
+
+        .slide-card:hover .slider-social-icon {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .slider-social-icon:hover {
+            background: #234d20;
+            color: #fff;
+            transform: translateY(0) scale(1.15);
+        }
+
+        /* Dot Indicators */
+        .dot-indicators {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(35, 77, 32, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0;
+        }
+
+        .dot:hover {
+            background: rgba(35, 77, 32, 0.5);
+        }
+
+        .dot.active {
+            background: #234d20;
+            width: 28px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(35, 77, 32, 0.3);
+        }
+
+        /* Responsive Slider */
+        @media (max-width: 768px) {
+            .nav-button {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-button.prev {
+                left: 5px;
+            }
+
+            .nav-button.next {
+                right: 5px;
+            }
+
+            .slider-viewport {
+                padding: 24px 48px;
+            }
+
+            .slide-card {
+                width: 180px;
+            }
+
+            .card-name {
+                font-size: 13px;
+            }
+
+            .card-role {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider-viewport {
+                padding: 20px 40px;
+            }
+
+            .slide-card {
+                width: 160px;
+            }
+
+            .nav-button {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav-button svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .nav-button {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-button.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        @media (max-width: 480px) {
+            .slider-viewport {
+                padding: 20px 40px;
+            }
+
+            .slide-card {
+                width: calc(100vw - 80px);
+                max-width: 260px;
+            }
+        }
+
+        /* Disabled button state */
+        .nav-button:disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .nav-button {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-button.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- New secs please comment in this when you are going to add it  Leads -->
+    <!-- <header id="header" class="d-flex align-items-center" style="background-color: #fff;">
+        <div class="container-fluid container-xxl d-flex align-items-center">
+            <div class="col-8">
+                <nav id="navbar" class="leftnav navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="././../../index.php">Home</a></li>
+                        <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Our Team</span> <i
+                                    class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="./../team_2021/index.html" style="text-decoration: none;">Team 2021</a>
+                                </li>
+                                <li><a href="./../team_2022/index.html" style="text-decoration: none;">Team 2022</a>
+                                </li>
+                                <li><a href="./../team_2023/index.html" style="text-decoration: none;">Team 2023</a>
+                                </li>
+                                <li><a href="./../team_2024/index.html" style="text-decoration: none;">Team 2024</a>
+                                </li>
+                                <li><a href="./../team_2025/index.html" style="text-decoration: none;">Team 2025</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="./flagship/flagship.html"
+                                style="text-decoration: none;"><span>Flagship Events</span> <i
+                                    class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="./../../flagship/aatmabodh/aatmabodh.html"
+                                        style="text-decoration: none;">Aatmabodh</a></li>
+                                <li><a href="./../../flagship/utkrash/utkarsh.html"
+                                        style="text-decoration: none;">Utkarsh</a></li>
+                                <li><a href="./../../flagship/blood-d/blood.html"
+                                        style="text-decoration: none;">Blood-d</a></li>
+                                <li><a href="#" style="text-decoration: none;">Matadhikar</a></li>
+                                <li><a href="#" style="text-decoration: none;">Police Mitra</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="#" style="text-decoration: none;"><span>Publications</span> <i
+                                    class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="./../../magazine/index.html" style="text-decoration: none;">Magazine</a>
+                                </li>
+                                <li><a href="./../../News/index.html" style="text-decoration: none;">News</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link scrollto" href="./../../GP2/index.php">Social Services</a></li>
+                        <li><a class="nav-link scrollto" href="./../../nss/nss.html">NSS</a></li>
+                        <li><a class="nav-link scrollto" href="./../../Calender/cal.html">Wheel of Events</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle" style="color: #234d20;"></i>
+                </nav>
+
+            </div>
+            <div class="col-6" style="text-align: right; width: 35%;">
+                <span>
+                    <div id="logonav" class="ms-auto">
+                        <a href="#" class="scrollto"><img src="../nsslogo.png" alt="" title=""></a>
+                        <a href="#" class="scrollto"><img src="../Vitlogo.png" alt="" title=""></a>
+                        <a href="#" class="scrollto"><img src="../swdlogo3.png" alt="" title=""></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </header> -->
+
+    <!-- Leads -->
+    <header id="header" class="d-flex align-items-center" style="background-color: #fff;">
+        <div class="container-fluid container-xxl d-flex align-items-center">
+            <div class="col-8">
+                <nav id="navbar" class="leftnav navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="https://swd.vit.edu/index.php">Home</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" style="text-decoration: none;">
+                                <span>Our Team</span> <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul>
+                                <li><a href="https://swd.vit.edu/team/team_2021/index.html">Team 2021</a></li>
+                                <li><a href="https://swd.vit.edu/team/team_2022/index.html">Team 2022</a></li>
+                                <li><a href="https://swd.vit.edu/team/team_2023/index.html">Team 2023</a></li>
+                                <li><a href="https://swd.vit.edu/team/team_2024/index.html">Team 2024</a></li>
+                                <li><a href="https://swd.vit.edu/team/team_2025/index.html">Team 2025</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="https://swd.vit.edu/flagship/flagship.html" style="text-decoration: none;">
+                                <span>Flagship Events</span> <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul>
+                                <li><a href="https://swd.vit.edu/flagship/aatmabodh/aatmabodh.html">Aatmabodh</a></li>
+                                <li><a href="https://swd.vit.edu/flagship/utkrash/utkarsh.html">Utkarsh</a></li>
+                                <li><a href="https://swd.vit.edu/flagship/blood-d/blood.html">Blood-d</a></li>
+                                <li><a href="#">Matadhikar</a></li>
+                                <li><a href="#">Police Mitra</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" style="text-decoration: none;">
+                                <span>Publications</span> <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul>
+                                <li><a href="https://swd.vit.edu/magazine/index.html">Magazine</a></li>
+                                <li><a href="https://swd.vit.edu/News/index.html">News</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="nav-link scrollto" href="https://swd.vit.edu/GP2/index.php">Social Services</a>
+                        </li>
+                        <li><a class="nav-link scrollto" href="https://swd.vit.edu/nss/nss.html">NSS</a></li>
+                        <li><a class="nav-link scrollto" href="https://swd.vit.edu/Calender/cal.html">Wheel of
+                                Events</a></li>
+                    </ul>
+
+                    <i class="bi bi-list mobile-nav-toggle" style="color: #234d20;"></i>
+                </nav>
+            </div>
+
+            <div class="col-6" style="text-align: right; width: 35%;">
+                <span>
+                    <div id="logonav" class="ms-auto">
+                        <a href="#"><img src="../nsslogo.png" alt="" title=""></a>
+                        <a href="#"><img src="../Vitlogo.png" alt="" title=""></a>
+                        <a href="#"><img src="../swdlogo3.png" alt="" title=""></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    </div>
+
+    <div class="container-A">
+        <div class="section-title">
+            <h1>Team 2025-2026</h1><br>
+            <h1>Leads</h1><br>
+            <h3
+                style="margin-left: 7%; max-width: 90%; font-size: calc(1.4rem); color: #555555; font-family: Playfair Display; font-style: italic; font-weight: 700; ">
+                Great teams aren't
+                born—they're built with trust, effort, and shared vision.</h3>
+        </div>
+        <br>
+
+        <!-- By Zainali -->
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="photo-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./team/Aryan_Chaure.png" alt="Omkar">
+                        </div>
+                        <div class="card-back">
+                            <h4>Aryan</h4>
+                            <p>I take pride in leading a group of individuals whose ambition and skills pave the way for
+                                great achievements.</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Aryan Chaure</h3>
+                <p>Chairperson</p>
+                <span class="social-icons-b">
+                    <a href="https://www.linkedin.com/in/omkar-deshmane-3a853022a/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/omkardeshmane_10/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/OmkarDeshmane6?t=8Z7x93KtHHO66fbhydAp0w&s=09"><i
+                            class="fab fa-twitter"></i></a>
+                </span>
+            </div>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./team/Somesh_Deshmukh.png" alt="Omkar Deshmane">
+                        </div>
+                        <div class="card-back">
+                            <h4>Somesh Deshmukh</h4>
+                            <p>I take pride in leading a group of individuals whose ambition and skills pave the way for
+                                great achievements</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Somesh Deshmukh</h3>
+                <p>Chairperson</p>
+                <span class="social-icons-b">
+                    <a href="https://www.linkedin.com/in/omkar-deshmane-3a853022a/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/omkardeshmane_10/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/OmkarDeshmane6?t=8Z7x93KtHHO66fbhydAp0w&s=09"><i
+                            class="fab fa-twitter"></i></a>
+                </span>
+            </div>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./team/Darshan_Ghuge.png" alt="Omkar Deshmane">
+                        </div>
+                        <div class="card-back">
+                            <h4>Darshan Ghuge</h4>
+                            <p>I take pride in leading a group of individuals whose ambition and skills pave the way for
+                                great achievements</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Darshan Ghuge</h3>
+                <p>Chief Function Executive</p>
+                <span class="social-icons-b">
+                    <a href="https://www.linkedin.com/in/omkar-deshmane-3a853022a/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/omkardeshmane_10/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/OmkarDeshmane6?t=8Z7x93KtHHO66fbhydAp0w&s=09"><i
+                            class="fab fa-twitter"></i></a>
+                </span>
+            </div>
+
+            <div class="team-card">
+                <div class="photo-container">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./team/Sandip_Pawar.png" alt="Omkar Deshmane">
+                        </div>
+                        <div class="card-back">
+                            <h4>Sandip Pawar</h4>
+                            <p>I take pride in leading a group of individuals whose ambition and skills pave the way for
+                                great achievements.</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Sadip Pawar</h3>
+                <p>Chief Function Executive</p>
+                <span class="social-icons-b">
+                    <a href="https://www.linkedin.com/in/omkar-deshmane-3a853022a/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/omkardeshmane_10/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/OmkarDeshmane6?t=8Z7x93KtHHO66fbhydAp0w&s=09"><i
+                            class="fab fa-twitter"></i></a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Secretary -->
+    <h1 style="font-weight: bold; font-size: 40px; text-align: center;">Secretary</h1>
+    <p class="lead mt-4 text-center" style="max-width: 100%; padding: 0px 40px;">The strong catalysts dedicated to
+        organizing and promoting
+        impactful initiatives that drive community engagement and social development. </p>
+
+    <!-- PR and Outreach Section -->
+    <div class="pr-section row align-items-center justify-content-start">
+        <div class="pr-text text-center">
+            <h2 class="mt-5">PR and Outreach</h2>
+            <p>Connecting our vision with the world through meaningful engagement and impactful collaborations.</p>
+        </div>
+
+        <div class="team-slider-container" id="slider-pr">
+            <div class="parallax-bg">
+                <div class="parallax-circle circle-1"></div>
+                <div class="parallax-circle circle-2"></div>
+                <div class="parallax-circle circle-3"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <button class="nav-button prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <!-- Pratham Chintawar -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Amit Jain</h3>
+                                <p class="card-role">FY SOCIAL REPRESENTATIVE</p>
+                                <div class="card-image-container">
+                                    <img src="./team/68.png" alt="Pratham Chintawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/pratham-chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/pratham.chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/PrathamC12" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Akshada Waditke</h3>
+                                <p class="card-role">FY SOCIAL REPRESENTATIVE</p>
+                                <div class="card-image-container">
+                                    <img src="./team/69.png" alt="Pratham Chintawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/pratham-chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/pratham.chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/PrathamC12" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Samruddhi Birajdar</h3>
+                                <p class="card-role">FY SOCIAL REPRESENTATIVE</p>
+                                <div class="card-image-container">
+                                    <img src="./team/70.png" alt="Pratham Chintawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/pratham-chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/pratham.chintawar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/PrathamC12" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ayush Deokar -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Adwita Gandhi</h3>
+                                <p class="card-role">PUBLIC RELATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/88.png" alt="Ayush Deokar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/ayush-deokar-a98811257" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://instagram.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Vedant Phutane</h3>
+                                <p class="card-role">PUBLIC RELATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/82.png" alt="Ayush Deokar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/ayush-deokar-a98811257" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://instagram.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Arnav Phadke</h3>
+                                <p class="card-role">PUBLIC RELATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/83.png" alt="Ayush Deokar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/ayush-deokar-a98811257" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://instagram.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sujit Kanawde -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Anirudh Aher</h3>
+                                <p class="card-role">PUBLIC RELATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/89.png" alt="Sujit Kanawde" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://linkedin.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sujit_kanawade12" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dnyaneshwari Ghuge -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prashant Thorve</h3>
+                                <p class="card-role">NSS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/75.png" alt="Dnyaneshwari Ghuge" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/dnyaneshwari-ghuge-455ba1297/"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/dnyaneshwari05_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Dnyaneshwari_G" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Omkar Patil</h3>
+                                <p class="card-role">NSS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/76.png" alt="Dnyaneshwari Ghuge" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/dnyaneshwari-ghuge-455ba1297/"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/dnyaneshwari05_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Dnyaneshwari_G" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Shreya Patil</h3>
+                                <p class="card-role">NSS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/73.png" alt="Dnyaneshwari Ghuge" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/dnyaneshwari-ghuge-455ba1297/"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/dnyaneshwari05_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Dnyaneshwari_G" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Girish Bagul -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Atharva Kulkarni</h3>
+                                <p class="card-role">SPONSORSHIP SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/81.png" alt="Girish Bagul" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/girish-bagul-057ybh" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/girishbagul07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/girishbagul07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Aditya Chaughule</h3>
+                                <p class="card-role">SPONSORSHIP SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/87.png" alt="Girish Bagul" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/girish-bagul-057ybh" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/girishbagul07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/girishbagul07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aryan Chaure -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sarthak Deshmukh</h3>
+                                <p class="card-role">OPERATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/84.png" alt="Aryan Chaure" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/aryan-chaure-189b87258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/aryanchaure" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/chaure_aryan" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Ayush Phalke</h3>
+                                <p class="card-role">OPERATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/86.png" alt="Aryan Chaure" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/aryan-chaure-189b87258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/aryanchaure" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/chaure_aryan" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Harsh Bide</h3>
+                                <p class="card-role">OPERATIONS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/85.png" alt="Aryan Chaure" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/aryan-chaure-189b87258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/aryanchaure" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/chaure_aryan" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-button next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dot-indicators"></div>
+        </div>
+    </div>
+
+    <!-- Social Activity Section -->
+    <div class="pr-section row align-items-center justify-content-start">
+        <div class="pr-text text-center">
+            <h2 class="mt-5">SOCIAL ACTIVITY</h2>
+            <p>Creating ripples of positive change by fostering inclusivity, awareness, and community empowerment.</p>
+        </div>
+
+        <div class="team-slider-container" id="slider-social">
+            <div class="parallax-bg">
+                <div class="parallax-circle circle-1"></div>
+                <div class="parallax-circle circle-2"></div>
+                <div class="parallax-circle circle-3"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <button class="nav-button prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <!-- Anant Khot -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Harshal Dhotre</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/35.png" alt="Anant Khot" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/anant-khot-62177224b" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/k__anant" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/KhotAnant73762" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arushi Kadam -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prathamesh Bamburkar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/36.png" alt="Arushi Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/arushi-kadam" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/arushiiee_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Gayatri Kodag</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/34.png" alt="Diksha Parsharam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/diksha-parsharam-5747692ab/"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/dikshaa_p25?igsh=MTNmZzk1bzVuM2NyMg=="
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Aditi Dharmadhikari</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/31.png" alt="Harshita Yadav" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/harshita-yadav-5576b8260/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/_harshita_3001/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Harshita22Yadav" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Aditya Pawar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/32.png" alt="Kshitij Gedam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/kshitij-anandrao-gedam-aaa65928a"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/kshitij_anandrao_gedam" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Arham Sancheti</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/33.png" alt="Rajwardhan Rokade" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rajwardhan-rokade-218785285"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rajjr_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Mohini Pinate</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/37.png" alt="Rohit Mutha" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rohit-mutha-843a8b195" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rohit_m0109" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Rohit8628090150" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prerna Waghmode</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/38.png" alt="Rushikesh Patil" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rushikesh-patil-a1890025b" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/_r.u.s.h.i_7" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Purva Daundkar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/40.png" alt="Sahil Kumbhar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sahil-kumbhar-473669254" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/_sahilkumbhar_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/sahil_kumbhar04" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Rutuja Badgujar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/40.png" alt="Sandip Pawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sandip-pawar-791b94258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sandippawar6062" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Pawar_Sandip07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sakshi Bhagwat</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/41.png" alt="Sayali Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sayali-kadam-2612332a9" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sayalikadam144" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sakshi Tupe</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/42.png" alt="Tejas Hatedikar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/tejas-hatedikar-09a868263/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/tejas.spammm" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sanket Hol</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/43.png" alt="Vivek Shejole" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://linkedin.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/vivek_shejole_39" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/vivekshejole1" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Somesh Deshmukh -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sukrut Kokate</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/44.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Swapnil Koli</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/45.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Tejas Pardhi</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/46.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Vishwajit Virkar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/47.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Vaibhav Dahatonde</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/48.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Garva Karmakar</h3>
+                                <p class="card-role">SOCIAL ACTIVITY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/79.png" alt="Mohit Deo" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/mohit-deo-bb1b18259" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/itz._.moo_hit/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Parth Jadhav -->
+                        <!-- <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Swapnil Koli</h3>
+                                <p class="card-role">ANIMAL WELFARE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/45.png" alt="Parth Jadhav" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/parthjadhav325" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/parthjadhav325" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/KhotAnant73762" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         Pranjal Gajbhiye -->
+                        <!-- <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Pranjal Gajbhiye</h3>
+                                <p class="card-role">ANIMAL WELFARE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/IMG-20240824-WA0029-Photoroom.png" alt="Pranjal Gajbhiye"
+                                        class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/pranjal-gajbhiye-4762342ba" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/k__anant" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/KhotAnant73762" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  -->
+                    </div>
+                </div>
+
+                <button class="nav-button next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dot-indicators"></div>
+        </div>
+    </div>
+
+    <!-- Technical Team Section -->
+    <div class="pr-section row align-items-center justify-content-start">
+        <div class="pr-text text-center">
+            <h2 class="mt-5">Technical Team</h2>
+            <p>Driving innovation with technical expertise and a passion for transformative solutions.</p>
+        </div>
+
+        <div class="team-slider-container" id="slider-tech">
+            <div class="parallax-bg">
+                <div class="parallax-circle circle-1"></div>
+                <div class="parallax-circle circle-2"></div>
+                <div class="parallax-circle circle-3"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <button class="nav-button prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <!-- Rudra Kochari -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Ruchita Babar</h3>
+                                <p class="card-role">DATABASE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/62.png" alt="Rudra Kochari" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rudrak18" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rudra_kochari" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Rutika Shirvastava</h3>
+                                <p class="card-role">DATABASE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/63.png" alt="Rudra Kochari" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rudrak18" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rudra_kochari" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Harshita Yadav -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Manasi Mhatre</h3>
+                                <p class="card-role">WEBSITE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/66.png" alt="Harshita Yadav" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/harshita-yadav-5576b8260/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/_harshita_3001/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Harshita22Yadav" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pranav Doshi -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Abhay Chikte</h3>
+                                <p class="card-role">WEBSITE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/65.png" alt="Pranav Doshi" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/pranav-doshi-5463b2249/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://instagram.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://www.instagram.com/pranav8doshi" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Darshan Ghuge -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Krish Kawrani</h3>
+                                <p class="card-role">FINANCE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/77.png" alt="Darshan Ghuge" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/darshan-ghuge-213b6025a" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/darsh_437" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Om Shintre -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sakshi Tupe</h3>
+                                <p class="card-role">FINANCE SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/78.png" alt="Om Shintre" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/om-shintre-o0309" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/omshintre_/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mohit Deo -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Garva Karmakar</h3>
+                                <p class="card-role">SCHOLORSHIP SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/79.png" alt="Mohit Deo" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/mohit-deo-bb1b18259" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/itz._.moo_hit/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Asawari Kshirsagar</h3>
+                                <p class="card-role">SCHOLORSHIP SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/80.png" alt="Mohit Deo" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/mohit-deo-bb1b18259" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/itz._.moo_hit/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-button next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dot-indicators"></div>
+        </div>
+    </div>
+
+    <!-- Branding Team Section -->
+    <div class="pr-section row align-items-center justify-content-start">
+        <div class="pr-text text-center">
+            <h2 class="mt-5">Branding Team</h2>
+            <p>Crafting compelling stories and shaping a memorable identity for the team.</p>
+        </div>
+
+        <div class="team-slider-container" id="slider-branding">
+            <div class="parallax-bg">
+                <div class="parallax-circle circle-1"></div>
+                <div class="parallax-circle circle-2"></div>
+                <div class="parallax-circle circle-3"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <button class="nav-button prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <!-- Rutuja Badgujar -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Raksha Urade</h3>
+                                <p class="card-role">AESTHETICS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/71.png" alt="Rutuja Badgujar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rutu__7805" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prathmesh Varute</h3>
+                                <p class="card-role">AESTHETICS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/72.png" alt="Rutuja Badgujar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rutu__7805" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hemashri Patil -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Aditi Dyavanpalli</h3>
+                                <p class="card-role">CONTENT SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/56.png" alt="Hemashri Patil" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/hemashri-patil-93077331b" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/hemashri_patil10" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sai Kadam -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Jayesh Patole</h3>
+                                <p class="card-role">CONTENT SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/57.png" alt="Sai Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sai-kadam-279415263" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/saee_169_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Saeekadam2" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sahil Kadam</h3>
+                                <p class="card-role">BRANDING SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/55.png" alt="Sai Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sai-kadam-279415263" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/saee_169_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Saeekadam2" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kartik Khope -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Chaitanya Dhotre</h3>
+                                <p class="card-role">SOCIAL MEDIA SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/61.png" alt="Kartik Khope" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/kartik-khope-b8805329a/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Tejas Mahajan</h3>
+                                <p class="card-role">MEDIA ACQUISATION & CREATIVES SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/60.png" alt="Parth Bhurke" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://linkedin.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/__partho__?igsh=Y3RyNG1jYzFqNHA5"
+                                            target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Omkesh Lamb</h3>
+                                <p class="card-role">MEDIA ACQUISATION & CREATIVES SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/58.png" alt="Santosh Kandhare" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/santosh-kandhare-4277b825a" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/santosh_kandhare45" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Shubham Manvatkar</h3>
+                                <p class="card-role">MEDIA ACQUISATION & CREATIVES SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/59.png" alt="Santosh Kandhare" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/santosh-kandhare-4277b825a" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/santosh_kandhare45" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sumit Pujari</h3>
+                                <p class="card-role">MULTIMEDIA SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/53.png" alt="Anjali Kimawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/anjali-kaminwar-242209257" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/anjalikaminwar" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Jagdish Waghmode</h3>
+                                <p class="card-role">MULTIMEDIA SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/54.png" alt="Prajakta Dhole" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/prajakta-d-78884023a" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/prajkta6124" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Omkar Patil</h3>
+                                <p class="card-role">PHOTOGRAPHY SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/52.png" alt="Sahil Kakad" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sahil-kakad-bb6a9030a/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/_sahilkakad_/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/SAHILKAKAD27390" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Pratham Chintawar</h3>
+                                <p class="card-role">RESEARCH & INNOVATION SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/67.png" alt="Sandip Pawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sandip-pawar-791b94258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sandippawar6062" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Pawar_Sandip07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Pratham Chintawar</h3>
+                                <p class="card-role">CLUBS SECRETARY</p>
+                                <div class="card-image-container">
+                                    <img src="./team/74.png" alt="Sandip Pawar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sandip-pawar-791b94258" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sandippawar6062" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/Pawar_Sandip07" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="nav-button next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dot-indicators"></div>
+        </div>
+    </div>
+
+    <!-- Club Leads Section -->
+    <div class="pr-section row align-items-center justify-content-start">
+        <div class="pr-text text-center">
+            <h2 class="mt-5">Club Leads</h2>
+            <p>Driving club initiatives and fostering community engagement.</p>
+        </div>
+
+        <div class="team-slider-container" id="slider-clubs">
+            <div class="parallax-bg">
+                <div class="parallax-circle circle-1"></div>
+                <div class="parallax-circle circle-2"></div>
+                <div class="parallax-circle circle-3"></div>
+            </div>
+
+            <div class="slider-wrapper">
+                <button class="nav-button prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <!-- Gajanan Baviskar -->
+                        <!-- Kanika Gorka -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Rutuja Badgujar</h3>
+                                <p class="card-role">PRESIDENT - DIVA CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/40.png" alt="Kanika Gorka" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/kanika-gorka-94a889230" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/k_gorka_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/GorkaKanika" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anjali Wakhure -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prerna Waghmode</h3>
+                                <p class="card-role">PRESIDENT - DIVA CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/38.png" alt="Anjali Wakhure" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/anjali-wakhure-225264260" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/anj_ali.18" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/anjali_wakhure" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Mayuri Ghatole -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Swapnil Koli</h3>
+                                <p class="card-role">PRESIDENT - YIN CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/45.png" alt="Mayuri Ghatole" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/mayuri-ghatole-626209331" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/mayuri_ghatole/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/GhatoleMayuri" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Aditya Pawar</h3>
+                                <p class="card-role">PRESIDENT - YIN CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/32.png" alt="Mayuri Ghatole" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/mayuri-ghatole-626209331" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/mayuri_ghatole/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://x.com/GhatoleMayuri" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sukrut Kokate</h3>
+                                <p class="card-role">PRESIDENT - GREEN CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/44.png" alt="Rudra Kochari" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/rudrak18" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/rudra_kochari" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Harhsal Dhotre</h3>
+                                <p class="card-role">PRESIDENT - GREEN CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/35.png" alt="Somesh Deshmukh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/somesh-deshmukh-b543b2262" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/sarkar5100_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Prathamesh Bamburkar</h3>
+                                <p class="card-role">PRESIDENT - ANIMAL WELFARE CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/36.png" alt="Arushi Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/arushi-kadam" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/arushiiee_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Tejas Pardhi</h3>
+                                <p class="card-role">PRESIDENT - ANIMAL WELFARE CLUB</p>
+                                <div class="card-image-container">
+                                    <img src="./team/46.png" alt="Arushi Kadam" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/arushi-kadam" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/arushiiee_" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sanket Hol</h3>
+                                <p class="card-role">EKLAVYA HEAD</p>
+                                <div class="card-image-container">
+                                    <img src="./team/43.png" alt="Gajanan Baviskar" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/gajanan-baviskar-5b9b08294" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/gajanan_1251" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sanika Kadam -->
+                        <div class="slide-card">
+                            <div class="card-content">
+                                <h3 class="card-name">Sayali Wagh</h3>
+                                <p class="card-role">EKLAVYA HEAD</p>
+                                <div class="card-image-container">
+                                    <img src="./team/sanika kadam.png" alt="Sayali Wagh" class="card-image">
+                                    <div class="card-gradient"></div>
+                                    <div class="slider-social-icons">
+                                        <a href="https://www.linkedin.com/in/sanika-kadam-87382a280/" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.linkedin.com/in/sanika-kadam-87382a280" target="_blank"
+                                            class="slider-social-icon"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://twitter.com" target="_blank" class="slider-social-icon"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-button next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dot-indicators"></div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container-f">
+                <div class="row-f"
+                    style="display: flex; justify-content: center; overflow: hidden; padding: 0px 20px; width: 90%; margin: 10px auto; gap: 15px;">
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <img src="./../swdlogo3.png" alt="Logo" style="width:20%; height:auto;">
+                        <p>Social Welfare and Development Committee with the motto of "Empowering Society, Transforming
+                            Lives" has
+                            been helping society for several years and continues to do so in any circumstance.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../index.php"
+                                    style="text-decoration: none;">Home</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#" style="text-decoration: none;">Our
+                                    Team</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../Calender/cal.html"
+                                    style="text-decoration: none;">Event
+                                    Schedule</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/flagship.html"
+                                    style="text-decoration: none;">Flagship Events</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../GP2/index.php"
+                                    style="text-decoration: none;">GP2 Activities</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../nss/nss.html"
+                                    style="text-decoration: none;">NSS</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Flagship</h4>
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/aatmabodh/aatmabodh.html"
+                                    style="text-decoration: none;">AATMABODH</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/rr/rr.html"
+                                    style="text-decoration: none;">REJUVENATING RASHTRA</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/utkrash/utkarsh.html"
+                                    style="text-decoration: none;">UTKARSH</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/miatre/miatre.html"
+                                    style="text-decoration: none;">MI ATRE BOLTOY</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="./../../flagship/blood-d/blood.html"
+                                    style="text-decoration: none;">BLOOD-D</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p style="color: white;">
+                            <b style="color:white">Social Welfare & Development</b><br>
+                            Vishwakarma Institute of Technology<br>
+                            666, Upper Indiranagar, Bibwewadi, <br>
+                            Pune - 411 037 <br>
+
+                            <strong style="color:white">Email:</strong> vitswd@vit.edu<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="https://twitter.com/vit_socials" target="_blank" class="twitter"><i
+                                    class="bi bi-twitter"></i></a>
+                            <a href="https://www.facebook.com/vitsocials" target="_blank" class="facebook"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/vitsocials/" target="_blank" class="instagram"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCJnaNm8Ns08rUIhsdFM2fhA" target="_blank"
+                                class="google-plus"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.linkedin.com/company/vit-social-welfare-development/" target="_blank"
+                                class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container-f">
+            <div class="copyright">
+                &copy; 2023-24 Social Welfare & Development Committee, VIT Pune.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        /**
+         * Easy selector helper function
+         */
+        const select = (el, all = false) => {
+            el = el.trim()
+            if (all) {
+                return [...document.querySelectorAll(el)]
+            } else {
+                return document.querySelector(el)
+            }
+        }
+
+        /**
+         * Easy event listener function
+         */
+        const on = (type, el, listener, all = false) => {
+            let selectEl = select(el, all)
+            if (selectEl) {
+                if (all) {
+                    selectEl.forEach(e => e.addEventListener(type, listener))
+                } else {
+                    selectEl.addEventListener(type, listener)
+                }
+            }
+        }
+
+        /**
+         * Easy on scroll event listener
+         */
+        const onscroll = (el, listener) => {
+            el.addEventListener('scroll', listener)
+        }
+
+        /**
+         * Navbar links active state on scroll
+         */
+        let navbarlinks = select('#navbar .scrollto', true)
+        const navbarlinksActive = () => {
+            let position = window.scrollY + 200
+            navbarlinks.forEach(navbarlink => {
+                if (!navbarlink.hash) return
+                let section = select(navbarlink.hash)
+                if (!section) return
+                if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+                    navbarlink.classList.add('active')
+                } else {
+                    navbarlink.classList.remove('active')
+                }
+            })
+        }
+        window.addEventListener('load', navbarlinksActive)
+        onscroll(document, navbarlinksActive)
+        /**
+         * Toggle .header-scrolled class to #header when page is scrolled
+         */
+        let selectHeader = select('#header')
+        if (selectHeader) {
+            const headerScrolled = () => {
+                if (window.scrollY > 100) {
+                    selectHeader.classList.add('header-scrolled')
+                } else {
+                    selectHeader.classList.remove('header-scrolled')
+                }
+            }
+            window.addEventListener('load', headerScrolled)
+            onscroll(document, headerScrolled)
+        }
+        /**
+         * Mobile nav toggle
+         */
+        on('click', '.mobile-nav-toggle', function (e) {
+            select('#navbar').classList.toggle('navbar-mobile')
+            this.classList.toggle('bi-list')
+            this.classList.toggle('bi-x')
+        })
+
+        /**
+         * Mobile nav dropdowns activate
+         */
+        on('click', '.navbar .dropdown > a', function (e) {
+            if (select('#navbar').classList.contains('navbar-mobile')) {
+                e.preventDefault()
+                this.nextElementSibling.classList.toggle('dropdown-active')
+            }
+        }, true)
+
+        /**
+         * Scrool with ofset on links with a class name .scrollto
+         */
+        on('click', '.scrollto', function (e) {
+            if (select(this.hash)) {
+                e.preventDefault()
+
+                let navbar = select('#navbar')
+                if (navbar.classList.contains('navbar-mobile')) {
+                    navbar.classList.remove('navbar-mobile')
+                    let navbarToggle = select('.mobile-nav-toggle')
+                    navbarToggle.classList.toggle('bi-list')
+                    navbarToggle.classList.toggle('bi-x')
+                }
+                scrollto(this.hash)
+            }
+        }, true)
+
+        /**
+         * Scroll with ofset on page load with hash links in the url
+         */
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                if (select(window.location.hash)) {
+                    scrollto(window.location.hash)
+                }
+            }
+        });
+    </script>
+
+    <!-- Slider JavaScript -->
+    <script>
+        // Initialize all sliders
+        function initSlider(container) {
+            const sliderTrack = container.querySelector('.slider-track');
+            const sliderViewport = container.querySelector('.slider-viewport');
+            const prevBtn = container.querySelector('.nav-button.prev');
+            const nextBtn = container.querySelector('.nav-button.next');
+            const dotIndicators = container.querySelector('.dot-indicators');
+            const parallaxBg = container.querySelector('.parallax-bg');
+            const cards = sliderTrack.querySelectorAll('.slide-card');
+
+            let currentPage = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isDragging = false;
+
+            // Get card width dynamically
+            function getCardWidth() {
+                if (cards.length === 0) return 220;
+                return cards[0].offsetWidth;
+            }
+
+            // Get gap value
+            function getGap() {
+                const style = window.getComputedStyle(sliderTrack);
+                const gap = style.gap || '24px';
+                return parseInt(gap);
+            }
+
+            // Calculate cards per page
+            function getCardsPerPage() {
+                const viewportWidth = sliderViewport.offsetWidth;
+                const isMobile = window.innerWidth <= 768;
+
+                if (isMobile) {
+                    // Show only 1 card at a time on mobile
+                    return 1;
+                }
+
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const totalCardWidth = cardWidth + gap;
+                const padding = 128;
+                const availableWidth = viewportWidth - padding;
+
+                return Math.max(1, Math.floor(availableWidth / totalCardWidth));
+            }
+
+            // Calculate total pages
+            function getTotalPages() {
+                const cardsPerPage = getCardsPerPage();
+                return Math.max(1, Math.ceil(cards.length / cardsPerPage));
+            }
+
+            // Update navigation buttons
+            function updateNavButtons() {
+                const totalPages = getTotalPages();
+
+                if (totalPages <= 1) {
+                    prevBtn.classList.remove('visible');
+                    nextBtn.classList.remove('visible');
+                    prevBtn.disabled = true;
+                    nextBtn.disabled = true;
+                    return;
+                }
+
+                // Enable/disable and show/hide based on current page
+                if (currentPage <= 0) {
+                    prevBtn.classList.remove('visible');
+                    prevBtn.disabled = true;
+                } else {
+                    prevBtn.classList.add('visible');
+                    prevBtn.disabled = false;
+                }
+
+                if (currentPage >= totalPages - 1) {
+                    nextBtn.classList.remove('visible');
+                    nextBtn.disabled = true;
+                } else {
+                    nextBtn.classList.add('visible');
+                    nextBtn.disabled = false;
+                }
+            }
+
+            // Create Dot Indicators
+            function createDots() {
+                dotIndicators.innerHTML = '';
+                const totalPages = getTotalPages();
+
+                if (totalPages <= 1) {
+                    dotIndicators.style.display = 'none';
+                    return;
+                }
+
+                dotIndicators.style.display = 'flex';
+
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = `dot ${i === currentPage ? 'active' : ''}`;
+                    dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+                    dot.addEventListener('click', () => goToPage(i));
+                    dotIndicators.appendChild(dot);
+                }
+            }
+
+            // Update Dots
+            function updateDots() {
+                const dots = dotIndicators.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentPage);
+                });
+            }
+
+            // Update Slider Position
+            function updateSliderPosition() {
+                const cardsPerPage = getCardsPerPage();
+                const cardWidth = getCardWidth();
+                const gap = getGap();
+                const totalCardWidth = cardWidth + gap;
+                const offset = currentPage * cardsPerPage * totalCardWidth;
+
+                sliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                sliderTrack.style.transform = `translateX(-${offset}px)`;
+
+                updateParallax();
+                updateDots();
+                updateNavButtons();
+            }
+
+            // Update Parallax Effect
+            function updateParallax() {
+                if (!parallaxBg) return;
+                const parallaxOffset = currentPage * 30;
+                const circles = parallaxBg.querySelectorAll('.parallax-circle');
+
+                if (circles[0]) circles[0].style.transform = `translateX(${parallaxOffset * 0.5}px)`;
+                if (circles[1]) circles[1].style.transform = `translateX(${-parallaxOffset * 0.3}px)`;
+                if (circles[2]) circles[2].style.transform = `translateY(-50%) translateX(${parallaxOffset * 0.4}px)`;
+            }
+
+            // Go to Page
+            function goToPage(page) {
+                const totalPages = getTotalPages();
+                currentPage = Math.max(0, Math.min(page, totalPages - 1));
+                updateSliderPosition();
+            }
+
+            // Next Page
+            function nextPage() {
+                const totalPages = getTotalPages();
+                if (currentPage < totalPages - 1) {
+                    currentPage++;
+                    updateSliderPosition();
+                }
+            }
+
+            // Previous Page
+            function prevPage() {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updateSliderPosition();
+                }
+            }
+
+            // Handle swipe gesture
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum distance for swipe
+                const swipeDistance = touchEndX - touchStartX;
+
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                        // Swiped right - go to previous
+                        prevPage();
+                    } else {
+                        // Swiped left - go to next
+                        nextPage();
+                    }
+                }
+            }
+
+            // Touch Event Listeners
+            sliderViewport.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isDragging = true;
+                sliderTrack.style.transition = 'none';
+            }, { passive: true });
+
+            sliderViewport.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                touchEndX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            sliderViewport.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                handleSwipe();
+                sliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            });
+
+            // Button Event Listeners
+            prevBtn.addEventListener('click', prevPage);
+            nextBtn.addEventListener('click', nextPage);
+
+            // Keyboard navigation
+            container.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevPage();
+                } else if (e.key === 'ArrowRight') {
+                    nextPage();
+                }
+            });
+
+            // Initialize
+            function init() {
+                const totalPages = getTotalPages();
+                currentPage = Math.min(currentPage, totalPages - 1);
+                createDots();
+                updateSliderPosition();
+            }
+
+            init();
+
+            // Update on resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    init();
+                }, 150);
+            });
+        }
+
+        // Initialize all sliders on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const sliders = document.querySelectorAll('.team-slider-container');
+            sliders.forEach(initSlider);
+        });
+    </script>
+</body>
+
+</html>
